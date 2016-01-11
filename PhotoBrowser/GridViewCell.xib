@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridViewCell" id="gTV-IL-0wX" customClass="GridViewCell" customModule="PhotoBrowser" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O3d-QX-Xnq">
+                        <rect key="frame" x="1" y="1" width="100" height="100"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="O3d-QX-Xnq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="3Xz-fW-Y7B"/>
+                <constraint firstItem="O3d-QX-Xnq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="VDa-Hb-N3W"/>
+                <constraint firstAttribute="trailing" secondItem="O3d-QX-Xnq" secondAttribute="trailing" constant="1" id="bQK-a8-35C"/>
+                <constraint firstAttribute="bottom" secondItem="O3d-QX-Xnq" secondAttribute="bottom" constant="1" id="pfZ-WG-l4W"/>
+            </constraints>
+            <size key="customSize" width="189" height="165"/>
+            <connections>
+                <outlet property="imageView" destination="O3d-QX-Xnq" id="3dx-7t-g89"/>
+            </connections>
+            <point key="canvasLocation" x="461.5" y="259.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
