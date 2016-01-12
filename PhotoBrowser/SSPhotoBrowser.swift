@@ -14,8 +14,16 @@ class SSPhotoBrowser: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reloadBrowser()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backbtn"), style: .Done, target: self, action: "backTapped")
     }
-
+    func backTapped(){
+        if isShowingGrid {
+            self.navigationController?.popViewControllerAnimated(true)
+        }else {
+            self.isShowingGrid = true
+            self.reloadBrowser()
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -39,8 +47,10 @@ class SSPhotoBrowser: UIViewController {
             let itemWidth = floor((view.bounds.size.width - CGFloat(column - 1)) / CGFloat(column))
             layout.itemSize = CGSizeMake(itemWidth, itemWidth)
         }
-        self.collectionView.setCollectionViewLayout(layout, animated: false, completion: nil)
-        self.collectionView.reloadData()
+        self.collectionView.setCollectionViewLayout(layout, animated: false) { (isAnimated) -> Void in
+            self.collectionView.reloadData()
+        }
+        
     }
     //MARK : Collection view layout
     func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int {
@@ -69,6 +79,12 @@ class SSPhotoBrowser: UIViewController {
             isShowingGrid = false
             self.reloadBrowser()
         }
+    }
+    //MARK: Show in Grid format
+    
+    @IBAction func showInGrid(){
+        self.isShowingGrid = true
+        self.reloadBrowser()
     }
     
 }
