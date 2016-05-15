@@ -17,8 +17,9 @@ class SSPhotoBrowser: UIViewController {
         super.viewDidLoad()
         self.dataSource = ["1.png","2.png","3.png"]
         self.loadBrowser()
-        
-        
+    }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.toolbarHidden = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

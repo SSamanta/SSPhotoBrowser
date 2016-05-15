@@ -12,7 +12,7 @@ class PreviewImage: UIViewController,UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
-    var isShowingFullScreen =  true
+    var isShowingFullScreen =  false
     var image : UIImage?
     var pageIndex : Int = 0
     override func viewDidLoad() {
@@ -34,10 +34,6 @@ class PreviewImage: UIViewController,UIScrollViewDelegate {
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return self.imageView
     }
-    func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?) {
-    }
-    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
-    }
     func addTapGestureOnImage(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleImageTap(_:)))
         self.imageView.userInteractionEnabled = true
@@ -48,5 +44,4 @@ class PreviewImage: UIViewController,UIScrollViewDelegate {
         self.navigationController?.setNavigationBarHidden(isShowingFullScreen, animated: true)
         self.navigationController?.setToolbarHidden(isShowingFullScreen, animated: true)
     }
-    
 }

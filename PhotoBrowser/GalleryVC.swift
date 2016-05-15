@@ -9,34 +9,28 @@
 import UIKit
 
 class GalleryVC: UIViewController,UIPageViewControllerDataSource {
-    var isShowingFullScreen =  true
+    var isShowingFullScreen =  false
     var pageViewController : UIPageViewController?
     var dataSource = [String]()
     var currentIndex : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = ["1.png","2.png","3.png"]
-        self.createMainPages()
-        //self.createBottomToolBarItems()
         self.addToolBar()
         self.addTapGestureOnImage()
-    }
-    func createBottomToolBarItems(){
-        let gridBarButtonItem = UIBarButtonItem(image: UIImage(named: "grid"), style: .Done, target: self, action: #selector(gridButtonTapped))
-        self.navigationController?.setToolbarItems([gridBarButtonItem], animated: true)
+        self.createMainPages()
     }
     
     func addToolBar(){
         self.navigationController?.toolbarHidden = false
         var items = [UIBarButtonItem]()
         items.append(
-            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
-        )
-        items.append(
             UIBarButtonItem(image: UIImage(named: "grid"), style: .Done, target: self, action: #selector(gridButtonTapped))
         )
+        items.append(
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
+        )
         self.setToolbarItems(items, animated: true)
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,7 +44,7 @@ class GalleryVC: UIViewController,UIPageViewControllerDataSource {
         startingViewController.loadImage(image!)
         let viewControllers = [startingViewController]
         pageViewController!.setViewControllers(viewControllers , direction: .Forward, animated: false, completion: nil)
-        pageViewController!.view.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-1);
+        pageViewController!.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height+44);
         pageViewController?.view.backgroundColor = UIColor.clearColor()
         addChildViewController(pageViewController!)
         view.addSubview(pageViewController!.view)
@@ -83,7 +77,6 @@ class GalleryVC: UIViewController,UIPageViewControllerDataSource {
         if self.dataSource.count == 0 || index >= self.dataSource.count {
             return nil
         }
-        // Create a new view controller and pass suitable data.
         let pageContentViewController : PreviewImage = PreviewImage()
         pageContentViewController.pageIndex = index
         currentIndex = index
@@ -93,6 +86,8 @@ class GalleryVC: UIViewController,UIPageViewControllerDataSource {
     }
     @IBAction func gridButtonTapped(sender : UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(false)
+        self.navigationController?.setToolbarHidden(true, animated: true)
+        self.navigationController?.toolbarHidden = true
     }
     func addTapGestureOnImage(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleImageTap(_:)))
