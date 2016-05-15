@@ -32,49 +32,6 @@
             </objects>
             <point key="canvasLocation" x="911" y="423"/>
         </scene>
-        <!--Photo Browser-->
-        <scene sceneID="tRi-ot-7hf">
-            <objects>
-                <viewController storyboardIdentifier="SSPhotoBrowser" id="WRb-t8-nRL" customClass="SSPhotoBrowser" customModule="PhotoBrowser" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yXv-FS-gH5"/>
-                        <viewControllerLayoutGuide type="bottom" id="awH-t2-JLc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4DL-V3-lo3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xmx-ck-0zG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zXH-zo-44G">
-                                    <size key="itemSize" width="200" height="150"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="WRb-t8-nRL" id="xZT-AT-77w"/>
-                                    <outlet property="delegate" destination="WRb-t8-nRL" id="xfk-mE-0ll"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Xmx-ck-0zG" secondAttribute="bottom" id="Dc2-c6-IQF"/>
-                            <constraint firstItem="Xmx-ck-0zG" firstAttribute="leading" secondItem="4DL-V3-lo3" secondAttribute="leading" id="F7k-A8-o87"/>
-                            <constraint firstItem="Xmx-ck-0zG" firstAttribute="top" secondItem="4DL-V3-lo3" secondAttribute="top" id="bVC-4U-GgC"/>
-                            <constraint firstAttribute="trailing" secondItem="Xmx-ck-0zG" secondAttribute="trailing" id="egD-ZL-VJ7"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="Xmx-ck-0zG" id="eUe-rm-Mjp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SOw-Io-8ML" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1541" y="424"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ifx-Qn-ajN">
             <objects>

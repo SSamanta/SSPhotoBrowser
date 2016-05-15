@@ -8,10 +8,8 @@
 
 import UIKit
 
-class SSPhotoBrowser: UIViewController {
+class GridVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
-    var isShowingGrid = true
-    
     var dataSource = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +18,9 @@ class SSPhotoBrowser: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.toolbarHidden = true
+    }
+    override func viewWillDisappear(animated: Bool) {
+         self.navigationController?.toolbarHidden = false
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,7 +53,6 @@ class SSPhotoBrowser: UIViewController {
         return cell
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
-        let galleryVc = GalleryVC()
-        self.navigationController?.pushViewController(galleryVc, animated: false)
+        self.navigationController?.popViewControllerAnimated(false)
     }
 }

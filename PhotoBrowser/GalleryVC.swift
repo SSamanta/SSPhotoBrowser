@@ -85,9 +85,8 @@ class GalleryVC: UIViewController,UIPageViewControllerDataSource {
         return pageContentViewController
     }
     func gridButtonTapped(sender : UIBarButtonItem) {
-        self.navigationController?.popViewControllerAnimated(false)
-        self.navigationController?.setToolbarHidden(true, animated: true)
-        self.navigationController?.toolbarHidden = true
+        let gridView : GridVC = GridVC()
+        self.navigationController?.pushViewController(gridView, animated: false)
     }
     func addTapGestureOnImage(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleImageTap(_:)))

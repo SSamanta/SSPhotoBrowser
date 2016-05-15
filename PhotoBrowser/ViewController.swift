@@ -18,9 +18,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     @IBAction func showPhotoBrowser(){
-        let photoBrowser = self.storyboard?.instantiateViewControllerWithIdentifier("SSPhotoBrowser") as! SSPhotoBrowser
-        self.navigationController?.pushViewController(photoBrowser, animated: true)
-        /**/
+        let galleryVc = GalleryVC()
+        self.navigationController?.pushViewController(galleryVc, animated: false)
     }
     
 }
