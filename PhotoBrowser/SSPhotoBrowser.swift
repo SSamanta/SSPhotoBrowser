@@ -17,6 +17,7 @@ class SSPhotoBrowser: UIViewController {
         self.dataSource = ["1.png","2.png","3.png"]
         self.loadBrowser()
         
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,6 +50,7 @@ class SSPhotoBrowser: UIViewController {
         return cell
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
-        
+        let galleryVc = GalleryVC()
+        self.navigationController?.pushViewController(galleryVc, animated: false)
     }
 }

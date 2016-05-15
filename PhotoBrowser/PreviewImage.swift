@@ -12,6 +12,7 @@ class PreviewImage: UIViewController,UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
+    var isShowingFullScreen =  true
     var image : UIImage?
     var pageIndex : Int = 0
     override func viewDidLoad() {
@@ -20,18 +21,6 @@ class PreviewImage: UIViewController,UIScrollViewDelegate {
         self.addTapGestureOnImage()
         self.scrollView.minimumZoomScale = 1.0;
         self.scrollView.maximumZoomScale = 6.0;
-        
-    }
-    override func viewWillAppear(animated: Bool) {
-        self.view.alpha = 0.0
-        UIView.animateWithDuration(0.4) {
-            self.view.alpha = 1.0
-        }
-    }
-    override func viewWillDisappear(animated: Bool) {
-        UIView.animateWithDuration(0.4) {
-            self.view.alpha = 0.0
-        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,6 +41,7 @@ class PreviewImage: UIViewController,UIScrollViewDelegate {
         self.imageView.addGestureRecognizer(tapGestureRecognizer)
     }
     func handleImageTap(sender : UITapGestureRecognizer) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        isShowingFullScreen = !isShowingFullScreen
+        self.navigationController?.setNavigationBarHidden(isShowingFullScreen, animated: true)
     }
 }
