@@ -13,14 +13,15 @@ class GridVC: UIViewController {
     var dataSource = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.alpha = 0.0
         self.dataSource = ["1.png","2.png","3.png"]
         self.loadBrowser()
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration(0.4) { 
+            self.view.alpha = 1.0
+        }
         self.navigationController?.toolbarHidden = true
-    }
-    override func viewWillDisappear(animated: Bool) {
-         self.navigationController?.toolbarHidden = false
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

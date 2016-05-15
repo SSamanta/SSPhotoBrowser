@@ -15,12 +15,24 @@ class GalleryVC: UIViewController,UIPageViewControllerDataSource {
     var currentIndex : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadUI()
+    }
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration(0.4) {
+            self.view.alpha = 1.0
+        }
+        self.navigationController?.toolbarHidden = false
+    }
+    override func viewDidDisappear(animated: Bool) {
+        self.view.alpha = 0.0
+    }
+    func loadUI() {
+        self.view.alpha = 0.0
         self.dataSource = ["1.png","2.png","3.png"]
         self.addToolBar()
         self.addTapGestureOnImage()
         self.createMainPages()
     }
-    
     func addToolBar(){
         self.navigationController?.toolbarHidden = false
         var items = [UIBarButtonItem]()
