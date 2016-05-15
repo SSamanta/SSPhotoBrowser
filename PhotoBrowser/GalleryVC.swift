@@ -24,13 +24,13 @@ class GalleryVC: UIViewController,UIPageViewControllerDataSource {
     func addToolBar(){
         self.navigationController?.toolbarHidden = false
         var items = [UIBarButtonItem]()
-        items.append(
-            UIBarButtonItem(image: UIImage(named: "grid"), style: .Done, target: self, action: #selector(gridButtonTapped))
-        )
-        items.append(
-            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
-        )
+        items.append(UIBarButtonItem(image: UIImage(named: "grid"), style: .Done, target: self, action: #selector(gridButtonTapped)))
+        items.append(UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil))
+        items.append(UIBarButtonItem.init(barButtonSystemItem:.Action, target: self, action: #selector(share)))
         self.setToolbarItems(items, animated: true)
+    }
+    func share(sender : UIBarButtonItem){
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,7 +84,7 @@ class GalleryVC: UIViewController,UIPageViewControllerDataSource {
         pageContentViewController.loadImage(image!)
         return pageContentViewController
     }
-    @IBAction func gridButtonTapped(sender : UIBarButtonItem) {
+    func gridButtonTapped(sender : UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(false)
         self.navigationController?.setToolbarHidden(true, animated: true)
         self.navigationController?.toolbarHidden = true
