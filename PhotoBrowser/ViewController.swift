@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBAction func showPhotoBrowser(){
         let photoBrowser = self.storyboard?.instantiateViewControllerWithIdentifier("SSPhotoBrowser") as! SSPhotoBrowser
         self.navigationController?.pushViewController(photoBrowser, animated: true)
+        /**/
     }
     
 }

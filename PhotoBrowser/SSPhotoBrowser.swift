@@ -11,45 +11,29 @@ import UIKit
 class SSPhotoBrowser: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var isShowingGrid = true
+    
+    var dataSource = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.reloadBrowser()
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backbtn"), style: .Done, target: self, action: "backTapped")
+        self.dataSource = ["1.png","2.png","3.png"]
+        self.loadBrowser()
     }
-    func backTapped(){
-        if isShowingGrid {
-            self.navigationController?.popViewControllerAnimated(true)
-        }else {
-            self.isShowingGrid = true
-            self.reloadBrowser()
-        }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.toolbarHidden = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func reloadBrowser(){
+    func loadBrowser(){
         let layout = UICollectionViewFlowLayout()
-        if isShowingGrid {
-            let gridNib = UINib(nibName: "GridViewCell", bundle: nil) as UINib
-            self.collectionView.registerNib(gridNib, forCellWithReuseIdentifier: "GridViewCell")
-            layout.scrollDirection = .Vertical
-            let column = UI_USER_INTERFACE_IDIOM() == .Pad ? 4 : 3
-            let itemWidth = floor((view.bounds.size.width - CGFloat(column - 1)) / CGFloat(column))
-            layout.minimumInteritemSpacing = 0.0
-            layout.minimumLineSpacing = 0.0
-            layout.itemSize = CGSizeMake(itemWidth,itemWidth)
-        }else {
-            let singleNib = UINib(nibName: "SingleViewCell", bundle: nil) as UINib
-            self.collectionView.registerNib(singleNib, forCellWithReuseIdentifier: "SingleViewCell")
-            layout.scrollDirection = .Horizontal
-            layout.minimumInteritemSpacing = 0.0
-            let column = UI_USER_INTERFACE_IDIOM() == .Pad ? 1: 1
-            let itemWidth = floor((view.bounds.size.width - CGFloat(column - 1)) / CGFloat(column))
-            layout.itemSize = CGSizeMake(itemWidth, itemWidth)
-        }
-        self.collectionView.setCollectionViewLayout(layout, animated: false) { (isAnimated) -> Void in
-            self.collectionView.reloadData()
-        }
+        let gridNib = UINib(nibName: "GridViewCell", bundle: nil) as UINib
+        self.collectionView.registerNib(gridNib, forCellWithReuseIdentifier: "GridViewCell")
+        layout.scrollDirection = .Vertical
+        let column = UI_USER_INTERFACE_IDIOM() == .Pad ? 4 : 3
+        let itemWidth = floor((view.bounds.size.width - CGFloat(column - 1)) / CGFloat(column))
+        layout.minimumInteritemSpacing = 0.0
+        layout.minimumLineSpacing = 0.0
+        layout.itemSize = CGSizeMake(itemWidth,itemWidth)
         
     }
     //MARK : Collection view layout
@@ -58,33 +42,17 @@ class SSPhotoBrowser: UIViewController {
     }
     
     func collectionView(collectionView: UICollectionView!,numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.dataSource.count
     }
     
     func collectionView(collectionView: UICollectionView!,cellForItemAtIndexPath indexPath: NSIndexPath!) ->UICollectionViewCell! {
-        if isShowingGrid {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GridViewCell",forIndexPath: indexPath) as! GridViewCell
-            let image = UIImage(named: "nature")
-            cell.imageView.image = image
-            return cell
-        }else {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SingleViewCell",forIndexPath: indexPath) as! SingleViewCell
-            let image = UIImage(named: "nature")
-            cell.imageView.image = image
-            return cell
-        }
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GridViewCell",forIndexPath: indexPath) as! GridViewCell
+        let image = UIImage(named: self.dataSource[indexPath.row])
+        cell.imageView.image = image
+        return cell
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
-        if isShowingGrid {
-            isShowingGrid = false
-            self.reloadBrowser()
-        }
+        let galleryVc = GalleryVC()
+        self.navigationController?.pushViewController(galleryVc, animated: false)
     }
-    //MARK: Show in Grid format
-    
-    @IBAction func showInGrid(){
-        self.isShowingGrid = true
-        self.reloadBrowser()
-    }
-    
 }
