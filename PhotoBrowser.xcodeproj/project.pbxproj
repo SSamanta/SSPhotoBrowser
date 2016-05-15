@@ -17,6 +17,10 @@
 		1C5774D01C43B8EF00B1B8D8 /* GridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5774CE1C43B8EF00B1B8D8 /* GridViewCell.xib */; };
 		1C5774D31C43D72400B1B8D8 /* SingleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5774D11C43D72400B1B8D8 /* SingleViewCell.swift */; };
 		1C5774D41C43D72400B1B8D8 /* SingleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C5774D21C43D72400B1B8D8 /* SingleViewCell.xib */; };
+		B51D0C7F1CE806CB0077F6D1 /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D0C7D1CE806CB0077F6D1 /* GalleryVC.swift */; };
+		B51D0C801CE806CB0077F6D1 /* GalleryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51D0C7E1CE806CB0077F6D1 /* GalleryVC.xib */; };
+		B51D0C831CE807E50077F6D1 /* PreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51D0C811CE807E50077F6D1 /* PreviewImage.swift */; };
+		B51D0C841CE807E50077F6D1 /* PreviewImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51D0C821CE807E50077F6D1 /* PreviewImage.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		1C5774CE1C43B8EF00B1B8D8 /* GridViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridViewCell.xib; sourceTree = "<group>"; };
 		1C5774D11C43D72400B1B8D8 /* SingleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewCell.swift; sourceTree = "<group>"; };
 		1C5774D21C43D72400B1B8D8 /* SingleViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleViewCell.xib; sourceTree = "<group>"; };
+		B51D0C7D1CE806CB0077F6D1 /* GalleryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
+		B51D0C7E1CE806CB0077F6D1 /* GalleryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryVC.xib; sourceTree = "<group>"; };
+		B51D0C811CE807E50077F6D1 /* PreviewImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewImage.swift; sourceTree = "<group>"; };
+		B51D0C821CE807E50077F6D1 /* PreviewImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewImage.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +72,12 @@
 		1C5774B41C43B48100B1B8D8 /* PhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				B51D0C811CE807E50077F6D1 /* PreviewImage.swift */,
+				B51D0C821CE807E50077F6D1 /* PreviewImage.xib */,
 				1C5774B51C43B48100B1B8D8 /* AppDelegate.swift */,
 				1C5774B71C43B48100B1B8D8 /* ViewController.swift */,
+				B51D0C7D1CE806CB0077F6D1 /* GalleryVC.swift */,
+				B51D0C7E1CE806CB0077F6D1 /* GalleryVC.xib */,
 				1C5774C71C43B4A800B1B8D8 /* SSPhotoBrowser.swift */,
 				1C5774D11C43D72400B1B8D8 /* SingleViewCell.swift */,
 				1C5774D21C43D72400B1B8D8 /* SingleViewCell.xib */,
@@ -138,6 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5774D41C43D72400B1B8D8 /* SingleViewCell.xib in Resources */,
+				B51D0C801CE806CB0077F6D1 /* GalleryVC.xib in Resources */,
+				B51D0C841CE807E50077F6D1 /* PreviewImage.xib in Resources */,
 				1C5774D01C43B8EF00B1B8D8 /* GridViewCell.xib in Resources */,
 				1C5774C01C43B48100B1B8D8 /* LaunchScreen.storyboard in Resources */,
 				1C5774BD1C43B48100B1B8D8 /* Assets.xcassets in Resources */,
@@ -153,6 +167,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5774CF1C43B8EF00B1B8D8 /* GridViewCell.swift in Sources */,
+				B51D0C7F1CE806CB0077F6D1 /* GalleryVC.swift in Sources */,
+				B51D0C831CE807E50077F6D1 /* PreviewImage.swift in Sources */,
 				1C5774C81C43B4A800B1B8D8 /* SSPhotoBrowser.swift in Sources */,
 				1C5774D31C43D72400B1B8D8 /* SingleViewCell.swift in Sources */,
 				1C5774B81C43B48100B1B8D8 /* ViewController.swift in Sources */,
@@ -306,6 +322,7 @@
 				1C5774C61C43B48100B1B8D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
