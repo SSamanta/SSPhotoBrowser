@@ -11,6 +11,7 @@ import UIKit
 class SSPhotoBrowser: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var isShowingGrid = true
+    
     var dataSource = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()

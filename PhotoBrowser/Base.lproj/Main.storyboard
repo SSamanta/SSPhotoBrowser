@@ -58,20 +58,11 @@
                                     <outlet property="delegate" destination="WRb-t8-nRL" id="xfk-mE-0ll"/>
                                 </connections>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6N-oy-mfN">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Item" systemItem="compose" id="qz4-gw-xNA"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="u6N-oy-mfN" firstAttribute="leading" secondItem="4DL-V3-lo3" secondAttribute="leading" id="6bM-E0-i3D"/>
-                            <constraint firstItem="awH-t2-JLc" firstAttribute="top" secondItem="u6N-oy-mfN" secondAttribute="bottom" id="8y1-Qm-Z5q"/>
                             <constraint firstAttribute="bottom" secondItem="Xmx-ck-0zG" secondAttribute="bottom" id="Dc2-c6-IQF"/>
                             <constraint firstItem="Xmx-ck-0zG" firstAttribute="leading" secondItem="4DL-V3-lo3" secondAttribute="leading" id="F7k-A8-o87"/>
-                            <constraint firstAttribute="trailing" secondItem="u6N-oy-mfN" secondAttribute="trailing" id="a87-c5-FwB"/>
                             <constraint firstItem="Xmx-ck-0zG" firstAttribute="top" secondItem="4DL-V3-lo3" secondAttribute="top" id="bVC-4U-GgC"/>
                             <constraint firstAttribute="trailing" secondItem="Xmx-ck-0zG" secondAttribute="trailing" id="egD-ZL-VJ7"/>
                         </constraints>

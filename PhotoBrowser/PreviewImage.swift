@@ -17,16 +17,19 @@ class PreviewImage: UIViewController,UIScrollViewDelegate {
     var pageIndex : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageView.image = image
-        self.addTapGestureOnImage()
-        self.scrollView.minimumZoomScale = 1.0;
-        self.scrollView.maximumZoomScale = 6.0;
+        self.loadUI()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     func loadImage(image :UIImage) {
         self.image = image
+    }
+    func loadUI(){
+        self.imageView.image = image
+        self.scrollView.minimumZoomScale = 1.0;
+        self.scrollView.maximumZoomScale = 6.0;
+        self.addTapGestureOnImage()
     }
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return self.imageView
@@ -43,5 +46,7 @@ class PreviewImage: UIViewController,UIScrollViewDelegate {
     func handleImageTap(sender : UITapGestureRecognizer) {
         isShowingFullScreen = !isShowingFullScreen
         self.navigationController?.setNavigationBarHidden(isShowingFullScreen, animated: true)
+        self.navigationController?.setToolbarHidden(isShowingFullScreen, animated: true)
     }
+    
 }
